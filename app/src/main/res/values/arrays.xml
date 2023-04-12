@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ward" >
+        <item></item>
+        <item>Banja</item>
+        <item>Busali</item>
+        <item>Central Bunyore</item>
+        <item>Chavakali</item>
+        <item>Emabungo</item>
+        <item>Emuhaya</item>
+        <item>Gisambai</item>
+        <item>Hamisi</item>
+        <item>Luanda South</item>
+        <item>Luanda</item>
+        <item>Luanda Township</item>
+        <item>Lugaga / Wamuluma</item>
+        <item>Lyaduywa/Izava</item>
+        <item>Maragoili Central</item>
+        <item>Maragoli South</item>
+        <item>Muhudu</item>
+        <item>Mungoma</item>
+        <item>Mwibona</item>
+        <item>North East Bunyore</item>
+        <item>North Maragoli</item>
+        <item>Sabatia</item>
+        <item>Sabatia West</item>
+        <item>Shamakhokho</item>
+        <item>Shiru</item>
+        <item>Tambua</item>
+        <item>Vihiga</item>
+        <item>Wemilabi</item>
+        <item>West Bunyore</item>
+        <item>Wodanga</item>
+    </string-array>
+
+    <string-array name="subCounty" >
+        <item>Emuhaya</item>
+        <item>Hamisi</item>
+        <item>Luanda</item>
+        <item>Sabatia</item>
+        <item>Vihiga</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="ages">
+        <item>18-35 Years</item>
+        <item>35-65 Years</item>
+        <item>66 and above</item>
+    </string-array>
+
+    <string-array name="county">
+        <item>Vihiga</item>
+    </string-array>
+
+    <string-array name="farming" >
+        <item>Crop Farming</item>
+        <item>Livestock Farming</item>
+    </string-array>
+
+    <string-array name="grouptype">
+        <item>CIG</item>
+        <item>SACCO</item>
+        <item>P.O</item>
+        <item>Cohort</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="productionunit">
+        <item>KGs</item>
+        <item>Lts</item>
+        <item>Number</item>
+        <item>Trays</item>
+    </string-array>
+
+    <string-array name="farmingPeriod">
+        <item>Annually</item>
+        <item>Bi-annually</item>
+        <item>Quarterly</item>
+        <item>Monthly</item>
+        <item>Weekly</item>
+        <item>Daily</item>
+    </string-array>
+
+
+</resources>

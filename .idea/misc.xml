@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable-v24/card_bg.xml" value="0.145" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable-v24/card_bg_unselected.xml" value="0.145" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable-v24/card_selector.xml" value="0.145" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable-v24/gps.xml" value="0.145" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable-v24/refresh.xml" value="0.145" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable/background_transparent.xml" value="0.1415" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable/dark_green_button.xml" value="0.1415" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable/input_green_border.xml" value="0.145" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable/tab_background.xml" value="0.145" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable/translucent_blue_card.xml" value="0.145" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/drawable/translucent_green_card.xml" value="0.1415" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout-v21/farmer_groups.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_addvaluechain.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_associations.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_details.xml" value="0.21" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_home.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_landing.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_location.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_produce.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_resources.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/activity_valuechain.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/add_farmer_assoc.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/collect_data.xml" value="0.18" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/custom_dialog.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/display_valuechains.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/fragment_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/nav_header.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/searchfarmer.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/layout/update_data.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp - KiambuCounty/app/src/main/res/menu/nav_menu.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/drawable-v24/card_bg.xml" value="0.1415" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/drawable-v24/card_bg_unselected.xml" value="0.1415" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/drawable-v24/card_selector.xml" value="0.1415" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/drawable-v24/translucent_darkgreen_card.xml" value="0.1415" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/drawable/dark_blue_button.xml" value="0.1935" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/drawable/darkgreen_card.xml" value="0.1935" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/drawable/tab_background.xml" value="0.1415" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout-v21/farmer_groups.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_addvaluechain.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_associations.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_details.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_home.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_landing.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_location.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_login.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_produce.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_resources.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/activity_valuechain.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/add_farmer_assoc.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/collect_data.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/custom_dialog.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/display_valuechains.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/fragment_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/nav_header.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/searchfarmer.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/layout/update_data.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-KirinyagaCounty/app/src/main/res/menu/nav_menu.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable-v24/card_bg.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable-v24/card_bg_unselected.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable-v24/card_selector.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable-v24/gps.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable-v24/orange_button.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable-v24/refresh.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable-v24/translucent_darkgreen_card.xml" value="0.133" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable-v24/transluscent_darkgreen_card.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable/dark_blue_button.xml" value="0.113" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable/darkgreen_card.xml" value="0.133" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable/input_blue_border.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable/tab_background.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable/translucent_blue_card.xml" value="0.133" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable/translucent_darkgreen_card.xml" value="0.13" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/drawable/yellow_button.xml" value="0.204" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout-v21/farmer_groups.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_addvaluechain.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_associations.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_details.xml" value="0.22" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_home.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_landing.xml" value="0.15" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_location.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_produce.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_resources.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/activity_valuechain.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/add_farmer_assoc.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/collect_data.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/custom_dialog.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/display_valuechains.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/fragment_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/nav_header.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/searchfarmer.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-NyamiraCounty/app/src/main/res/layout/update_data.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/drawable-v24/card_bg.xml" value="0.175" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/drawable-v24/card_bg_unselected.xml" value="0.175" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/drawable-v24/card_selector.xml" value="0.175" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/drawable-v24/translucent_darkgreen_card.xml" value="0.179" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/drawable/dark_blue_button.xml" value="0.179" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/drawable/darkgreen_card.xml" value="0.179" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/drawable/tab_background.xml" value="0.175" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/drawable/white_card.xml" value="0.175" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout-v21/farmer_groups.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_addvaluechain.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_associations.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_details.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_home.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_landing.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_location.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_produce.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_resources.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/activity_valuechain.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/add_farmer_assoc.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/collect_data.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/custom_dialog.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/display_valuechains.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/fragment_main.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/nav_header.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/searchfarmer.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/layout/update_data.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp-VihigaCounty/app/src/main/res/menu/nav_menu.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable-v24/card_bg.xml" value="0.2115" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable-v24/card_bg_unselected.xml" value="0.2115" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable-v24/card_selector.xml" value="0.2115" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable-v24/refresh.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/background_transparent.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/dark_green_button.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/ic_account_circle.xml" value="0.2115" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1185" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/ic_baseline_post_add_24.xml" value="0.138" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/ic_menu.xml" value="0.142" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/tab_background.xml" value="0.1915" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/drawable/translucent_green_card.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout-v21/farmer_groups.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/acitivity_addvaluchain1.xml" value="0.1625" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/acitvity_produce2.xml" value="0.1625" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_addvaluechain.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_addvaluechain2.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_associations.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_associations2.xml" value="0.33" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_details.xml" value="0.22" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_details2.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_landing.xml" value="0.1638888888888889" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_location.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_location2.xml" value="0.18" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_produce.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_produce2.xml" value="0.33" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_resources.xml" value="0.19909502262443438" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_resources2.xml" value="0.32303370786516855" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_valuechain.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/activity_valuechain2.xml" value="0.1625" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/add_farmer_assoc.xml" value="0.2" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/collect_data.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/custom_dialog.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/display_valuechains.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/fragment_main.xml" value="0.1046875" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/nav_header.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/searchfarmer.xml" value="0.18" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/layout/update_data.xml" value="0.25" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/menu/nav_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/menu/navigation_menu.xml" value="0.14629629629629629" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Android Projects/DAT-MobileApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

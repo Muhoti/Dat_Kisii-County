@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:padding="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="@string/search_for_a_farmer"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/lightgreen"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="24dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/red"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:height="24dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@string/enter_farmer_s_national_id"
+                android:textColor="@color/lightgreen"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_bluegreen_border"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/farmerId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/translucent_white"
+                    android:gravity="center"
+                    android:hint="000000"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:inputType="number"
+                    android:textColor="@color/lightgreen"
+                    android:textColorHint="@color/bluegreen"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/submit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/dark_blue_button"
+            android:text="Search"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            android:textColor="@color/yellow"
+            android:layout_marginBottom="24dp" />
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone" />
+</androidx.constraintlayout.widget.ConstraintLayout>
