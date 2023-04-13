@@ -10,8 +10,8 @@ interface ApiInterface {
 
     companion object {
 
-//      val BASE_URL = "http://demo.osl.co.ke:444/"
-        val BASE_URL = "http://185.215.180.181:7014/api/"
+    val BASE_URL = "http://192.168.1.114:3003/"
+       // val BASE_URL = "http://185.215.180.181:7014/api/"
 
         fun create() : ApiInterface {
             val retrofit = Retrofit.Builder()
@@ -78,5 +78,8 @@ interface ApiInterface {
 
     @GET("farmerdetails/mapped/{user}")
     fun showStatistics(@Path("user") user: String) : Call<StatsStatus>
+
+    @GET("farmerdetails/mobile/forms/check/{id}")
+    fun checkForms(@Path("id") user: String) : Call<CheckForm>
 }
 
