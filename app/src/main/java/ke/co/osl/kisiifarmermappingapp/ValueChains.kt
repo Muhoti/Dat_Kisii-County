@@ -2,6 +2,7 @@ package ke.co.osl.kisiifarmermappingapp
 
 import android.app.Dialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -22,10 +23,15 @@ class ValueChains: AppCompatActivity() {
     var offset = 0
     var total = 0
     var fId = ""
+    lateinit var preferences: SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_valuechain)
+
+        preferences = this.getSharedPreferences("kisiiapp", MODE_PRIVATE)
+        editor = preferences.edit()
 
         recyclerlist = findViewById(R.id.recycler_list)
         recyclerlist.setHasFixedSize(true)
@@ -47,7 +53,7 @@ class ValueChains: AppCompatActivity() {
 
         add.setOnClickListener {
             val intent =Intent(this, AddValueChain::class.java)
-            intent.putExtra("FarmerID", fId )
+            //intent.putExtra("FarmerID", fId )
             startActivity(intent)
             finish()
         }
@@ -57,8 +63,8 @@ class ValueChains: AppCompatActivity() {
             val intent =Intent(this, Summary::class.java)
             startActivity(intent)
         }
-
-        var id = intent.getStringExtra("FarmerID")
+        var id = preferences.getString("NationalID", "")
+        //var id = intent.getStringExtra("FarmerID")
         System.out.println("Value Chain ID is " + id)
 
         if(id == null)
@@ -69,7 +75,8 @@ class ValueChains: AppCompatActivity() {
 
     private fun chooseAction(checkId: String) {
         if(checkId !== "") {
-            val id=intent.getStringExtra("FarmerID")
+            val id = preferences.getString("NationalID", "")
+           // val id=intent.getStringExtra("FarmerID")
             System.out.println("Running Value Chain ID as " + id)
             fId = id!!
             displayValueChains(id)

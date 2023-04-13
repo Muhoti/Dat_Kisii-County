@@ -12,7 +12,7 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lightgreen"
+        android:background="@color/blue"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" >
 
@@ -24,7 +24,7 @@
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
             android:orientation="horizontal"
-            android:background="@color/lightgreen">
+            android:background="@color/blue">
 
             <TextView
                 android:id="@+id/appbar_text"
@@ -70,7 +70,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:text="Add Value Chain"
-                android:textColor="@color/lightgreen"
+                android:textColor="@color/blue"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="20dp"
@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:entries="@array/valuechain_array"
                     android:spinnerMode="dropdown"
-                    android:textColor="@color/lightgreen"
+                    android:textColor="@color/blue"
                     android:backgroundTint="@color/bluegreen"
                     android:padding="2dp"
                     />
@@ -148,7 +148,7 @@
                 android:layout_marginEnd="24dp"
                 android:hint="Variety of Value Chain"
                 android:textColorHint="@color/bluegreen"
-                android:textColor="@color/lightgreen"
+                android:textColor="@color/blue"
                 android:textSize="12sp"
                 android:background="@drawable/input_bluegreen_border"
                 android:padding="10dp"
@@ -182,7 +182,7 @@
                     android:layout_height="wrap_content"
                     android:entries="@array/productionunit"
                     android:spinnerMode="dropdown"
-                    android:textColor="@color/lightgreen"
+                    android:textColor="@color/blue"
                     android:backgroundTint="@color/bluegreen"
                     android:padding="2dp"
                     />
@@ -207,7 +207,7 @@
                 android:layout_marginEnd="24dp"
                 android:hint="Size of farm in acres"
                 android:textColorHint="@color/bluegreen"
-                android:textColor="@color/lightgreen"
+                android:textColor="@color/blue"
                 android:textSize="12sp"
                 android:background="@drawable/input_bluegreen_border"
                 android:padding="10dp"
@@ -235,7 +235,7 @@
                 android:layout_marginEnd="24dp"
                 android:hint="Amount Harvested"
                 android:textColorHint="@color/bluegreen"
-                android:textColor="@color/lightgreen"
+                android:textColor="@color/blue"
                 android:textSize="12sp"
                 android:background="@drawable/input_bluegreen_border"
                 android:padding="10dp"
@@ -263,7 +263,7 @@
                 android:layout_marginEnd="24dp"
                 android:hint="Total Harvest per year (apprx)"
                 android:textColorHint="@color/bluegreen"
-                android:textColor="@color/lightgreen"
+                android:textColor="@color/blue"
                 android:textSize="12sp"
                 android:background="@drawable/input_bluegreen_border"
                 android:padding="10dp"
@@ -279,7 +279,7 @@
                 android:id="@+id/submit"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/dark_blue_button"
+                android:background="@drawable/green_button"
                 android:paddingStart="30dp"
                 android:paddingRight="30dp"
                 android:text="Submit"

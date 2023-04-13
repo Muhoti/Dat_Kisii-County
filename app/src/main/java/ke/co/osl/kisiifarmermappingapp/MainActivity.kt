@@ -141,28 +141,33 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
     }
 
-    private fun editUpdateProduce() {
-        startActivity(Intent(this, UpdateProduce::class.java))
-    }
-
     private fun editValueChains() {
-        startActivity(Intent(this, ValueChains::class.java))
+        val intent = Intent(this, ValueChains::class.java)
+        intent.putExtra("editing", "search")
+        startActivity(intent)
     }
 
     private fun editFarmerResources() {
-        startActivity(Intent(this, FarmerResources::class.java))
+        val intent = Intent(this, FarmerResources::class.java)
+        intent.putExtra("editing", "search")
+        startActivity(intent)
     }
 
     private fun editFarmerAddress() {
-        startActivity(Intent(this, FarmerAddress::class.java))
+        val intent = Intent(this@MainActivity, FarmerAddress::class.java)
+        intent.putExtra("editing", "search")
+        startActivity(intent)
     }
 
     private fun editFarmerAssociations() {
         startActivity(Intent(this, FarmerAssociations::class.java))
+        intent.putExtra("editing", "search")
     }
 
     private fun editFarmerDetails() {
-        startActivity(Intent(this, FarmerDetails::class.java))
+        val intent = Intent(this,FarmerDetails::class.java)
+        intent.putExtra("editing", "search")
+        startActivity(intent)
     }
 
     private fun logout() {

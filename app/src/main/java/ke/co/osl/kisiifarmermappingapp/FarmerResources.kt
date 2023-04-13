@@ -2,6 +2,7 @@ package ke.co.osl.kisiifarmermappingapp
 
 import android.app.Dialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -15,10 +16,15 @@ import retrofit2.Response
 
 class FarmerResources: AppCompatActivity() {
     lateinit var dialog: Dialog
+    lateinit var preferences: SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resources)
+
+        preferences = this.getSharedPreferences("kisiiapp", MODE_PRIVATE)
+        editor = preferences.edit()
 
         val back = findViewById<ImageView>(R.id.back)
 
@@ -31,11 +37,10 @@ class FarmerResources: AppCompatActivity() {
             startActivity(Intent (this, MainActivity::class.java))
         }
 
-        var id = intent.getStringExtra("FarmerID")
-        System.out.println("Farmer Resources ID IS " + id)
-
+        var id = preferences.getString("NationalID", "")
+        //var id = intent.getStringExtra("FarmerID")
         var editing = intent.getBooleanExtra("editing", false)
-        System.out.println("THE ID IS " + id)
+        System.out.println("Farmer Resources ID is " + id + " and editing is " + editing)
 
         if(id == null)
             id = ""
@@ -116,7 +121,8 @@ class FarmerResources: AppCompatActivity() {
             error.text = ""
 
             progress.visibility = View.VISIBLE
-            val id=intent.getStringExtra("FarmerID")
+            val id = preferences.getString("NationalID", "")
+            //val id=intent.getStringExtra("FarmerID")
             System.out.println("The Farmer Resources ID now IS " + id)
             val farmersResourcesBody = FarmersResourcesBody(
                 id!!,
@@ -141,7 +147,7 @@ class FarmerResources: AppCompatActivity() {
                         }
                         error.text = response?.body()?.success
                         val intent = Intent(this@FarmerResources,FarmerAssociations::class.java)
-                        intent.putExtra("FarmerID", response.body()?.token)
+                        //intent.putExtra("FarmerID", response.body()?.token)
                         startActivity(intent)
                     }
                     else {

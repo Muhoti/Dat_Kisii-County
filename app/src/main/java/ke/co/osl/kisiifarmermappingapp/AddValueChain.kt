@@ -1,6 +1,7 @@
 package ke.co.osl.kisiifarmermappingapp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -14,10 +15,15 @@ import retrofit2.Response
 
 class AddValueChain: AppCompatActivity() {
     var fId = ""
+    lateinit var preferences: SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addvaluechain)
+
+        preferences = this.getSharedPreferences("kisiiapp", MODE_PRIVATE)
+        editor = preferences.edit()
 
         val back = findViewById<ImageView>(R.id.back)
 
@@ -25,7 +31,8 @@ class AddValueChain: AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        var id = intent.getStringExtra("FarmerID")
+        var id = preferences.getString("NationalID", "")
+        //var id = intent.getStringExtra("FarmerID")
         System.out.println("THE ID IS " + id)
 
         if(id == null)

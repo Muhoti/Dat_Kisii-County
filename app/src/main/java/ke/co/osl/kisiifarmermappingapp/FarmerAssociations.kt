@@ -2,6 +2,7 @@ package ke.co.osl.kisiifarmermappingapp
 
 import android.app.Dialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -26,10 +27,15 @@ class FarmerAssociations: AppCompatActivity() {
     var total = 0
     var fId = ""
     var fname = ""
+    lateinit var preferences: SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_associations)
+
+        preferences = this.getSharedPreferences("kisiiapp", MODE_PRIVATE)
+        editor = preferences.edit()
 
         recyclerlist = findViewById(R.id.recycler_list)
         recyclerlist.setHasFixedSize(true)
@@ -60,14 +66,14 @@ class FarmerAssociations: AppCompatActivity() {
 
         proceed.setOnClickListener {
             val intent =Intent(this, ValueChains::class.java)
-            intent.putExtra("FarmerID", fId )
+            //intent.putExtra("FarmerID", fId )
             intent.putExtra("FarmerName", fname)
             startActivity(intent)
             finish()
         }
 
-        var id = intent.getStringExtra("FarmerID")
-
+        var id = preferences.getString("NationalID", "")
+        //var id = intent.getStringExtra("FarmerID")
 
         if(id == null)
             id = ""
@@ -76,7 +82,8 @@ class FarmerAssociations: AppCompatActivity() {
 
     private fun chooseAction(checkId: String) {
         if(checkId !== "") {
-            val id=intent.getStringExtra("FarmerID")
+            //val id=intent.getStringExtra("FarmerID")
+            val id=preferences.getString("NationalID", "")
             System.out.println("Farmer Association ID IS " + id)
             fId = id!!
             displayFarmerGroups(id)
@@ -103,7 +110,6 @@ class FarmerAssociations: AppCompatActivity() {
             error.text = ""
 
             progress.visibility = View.VISIBLE
-
 
             val groupsBody = FarmerAssociationsBody (
                 id,
@@ -178,6 +184,7 @@ class FarmerAssociations: AppCompatActivity() {
     private fun displayFarmerGroups(id: String) {
         val progress = findViewById<ProgressBar>(R.id.progress)
         progress.visibility = View.VISIBLE
+        System.out.println("here the id is $id farmer associate.")
         val apiInterface = ApiInterface.create().showFarmerGroups(id)
         apiInterface.enqueue(object : Callback<List<FarmerAssociationsBody>> {
             override fun onResponse(call: Call<List<FarmerAssociationsBody>>,response: Response<List<FarmerAssociationsBody>>) {

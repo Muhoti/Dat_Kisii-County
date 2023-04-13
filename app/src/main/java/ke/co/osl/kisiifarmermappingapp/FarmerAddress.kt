@@ -43,9 +43,10 @@ class FarmerAddress: AppCompatActivity() {
     lateinit var preferences: SharedPreferences
     lateinit var editor: SharedPreferences.Editor
 
+    //    val ip_URL = "http://185.215.180.181:7805/api/map/"
+    val ip_URL = "    http://192.168.1.114:3003/api/map/"
 
-    val ip_URL = "http://185.215.180.181:7805/api/map/"
-//    val ip_URL = "http://demo.osl.co.ke:444/"
+    //    val ip_URL = "http://demo.osl.co.ke:444/"
 
     object AndroidJSInterface {
         @JavascriptInterface
@@ -60,7 +61,6 @@ class FarmerAddress: AppCompatActivity() {
 
         preferences = this.getSharedPreferences("kisiiapp", MODE_PRIVATE)
         editor = preferences.edit()
-
 
         accuracy = findViewById(R.id.accuracy)
         address = findViewById(R.id.address)
@@ -78,15 +78,10 @@ class FarmerAddress: AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        var id = preferences.getString("NationalID", "")
+        var editing = intent.getStringExtra("editing")!!
+        System.out.println("editing is " + editing)
 
-       // var id = intent.getStringExtra("FarmerID")
-        var editing = intent.getBooleanExtra("editing", false)
-        System.out.println("Farmer Address ID IS " + id)
-
-        if(id == null)
-            id = ""
-        chooseAction(id,editing)
+        chooseAction(editing)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             requestLocationPermission ()
@@ -260,36 +255,41 @@ class FarmerAddress: AppCompatActivity() {
             Manifest.permission.ACCESS_COARSE_LOCATION))
     }
 
-    private fun chooseAction(checkId: String,editing: Boolean) {
-        if(checkId !== "") {
-            // POST
-           if(editing) {
-               val apiInterface = ApiInterface.create().searchFarmerAddress(checkId)
-               apiInterface.enqueue( object : Callback<FarmersLocationBody> {
-                   override fun onResponse( call: Call<FarmersLocationBody>, response: Response<FarmersLocationBody> ) {
-                       if(response?.body()?.FarmerID !== null) {
-                           System.out.println(response.body())
-                           dialog.hide()
-                           getFarmersAddress(response.body()!!)
-                       }else {
-                         //  error.text = "The farmer was not found!"
-                       }
-                   }
-                   override fun onFailure(call: Call<FarmersLocationBody>, t: Throwable) {
-
-                       System.out.println(t)
-                      // error.text = "Connection to server failed"
-                   }
-               })
-
-           }
-            else {
-               postFarmerDetails()
-           }
-        } else {
-            // GET
+    private fun chooseAction(editing: String) {
+        if (editing == "search"){
             showDialog()
+        } else {
+            postFarmerDetails()
         }
+//        if(checkId !== "") {
+//            // POST
+//           if(editing == "search") {
+//               val apiInterface = ApiInterface.create().searchFarmerAddress(checkId)
+//               apiInterface.enqueue( object : Callback<FarmersLocationBody> {
+//                   override fun onResponse( call: Call<FarmersLocationBody>, response: Response<FarmersLocationBody> ) {
+//                       if(response?.body()?.FarmerID !== null) {
+//                           System.out.println(response.body())
+//                           dialog.hide()
+//                           getFarmersAddress(response.body()!!)
+//                       }else {
+//                         //  error.text = "The farmer was not found!"
+//                       }
+//                   }
+//                   override fun onFailure(call: Call<FarmersLocationBody>, t: Throwable) {
+//
+//                       System.out.println(t)
+//                      // error.text = "Connection to server failed"
+//                   }
+//               })
+//
+//           }
+//            else {
+//               postFarmerDetails()
+//           }
+//        } else {
+//            // GET
+//            showDialog()
+//        }
     }
 
     private fun showDialog() {
@@ -310,7 +310,7 @@ class FarmerAddress: AppCompatActivity() {
             apiInterface.enqueue( object : Callback<FarmersLocationBody> {
                 override fun onResponse( call: Call<FarmersLocationBody>, response: Response<FarmersLocationBody> ) {
                     if(response?.body()?.FarmerID !== null) {
-                        System.out.println(response.body())
+                        System.out.println("the farmer address body is " + response.body())
                         progress.visibility = View.GONE
                         dialog.hide()
                         getFarmersAddress(response.body()!!)
@@ -351,7 +351,8 @@ class FarmerAddress: AppCompatActivity() {
             }
 
             progress.visibility = View.VISIBLE
-            val id=intent.getStringExtra("FarmerID")
+            val id = preferences.getString("NationalID", "")
+            //val id=intent.getStringExtra("FarmerID")
             val farmersLocationBody = FarmersLocationBody(
                 id!!,
                 county.selectedItem.toString(),
@@ -370,14 +371,10 @@ class FarmerAddress: AppCompatActivity() {
                     progress.visibility = View.GONE
                     System.out.println(response?.body())
                     if(response?.body()?.success !== null){
-                        if (response?.body()?.success == "farmer exists"){
-                            error.text = response?.body()?.success
-                            chooseAction(id, false)
-                        }
                         error.text = response.body()?.success
                         val intent = Intent(this@FarmerAddress,FarmerResources::class.java)
                        System.out.println(response.body())
-                        intent.putExtra("FarmerID", response.body()?.token)
+                        //intent.putExtra("FarmerID", response.body()?.token)
                         startActivity(intent)
                     }
                     else {
@@ -437,7 +434,7 @@ class FarmerAddress: AppCompatActivity() {
                     System.out.println(response?.body()!!)
                     if(response?.body()?.success !== null){
                         error.text = response?.body()?.success
-                        val intent = Intent(this@FarmerAddress, FarmerResources::class.java)
+                        val intent = Intent(this@FarmerAddress, MainActivity::class.java)
                         intent.putExtra("FarmerID", response.body()?.token)
                         intent.putExtra("editing",true)
                         startActivity(intent)

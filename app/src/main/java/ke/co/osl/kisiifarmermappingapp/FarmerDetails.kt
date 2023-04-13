@@ -59,7 +59,6 @@ class FarmerDetails: AppCompatActivity() {
         if(checkId == "xyxyx") {
             createFarmerDetails()
             System.out.println(checkId)
-
         }
         else if(checkId !== "" && checkId !== "xyxyx") {
             val apiInterface = ApiInterface.create().searchFarmerDetails(checkId)
@@ -182,7 +181,7 @@ class FarmerDetails: AppCompatActivity() {
                         editor.apply()
                         System.out.println("national id is ${farmerDetailsBody.NationalID}")
                         val intent = Intent(this@FarmerDetails,FarmerAddress::class.java)
-                        intent.putExtra("FarmerID", response.body()?.token)
+                        //intent.putExtra("FarmerID", response.body()?.token)
                         startActivity(intent)
                     }
                     else {
@@ -249,9 +248,7 @@ class FarmerDetails: AppCompatActivity() {
                     System.out.println(response?.body())
                     if(response?.body()?.success !== null){
                         error.text = response?.body()?.success
-                        val intent = Intent(this@FarmerDetails,FarmerAddress::class.java)
-                        intent.putExtra("FarmerID",body.NationalID!!)
-                        intent.putExtra("editing",true)
+                        val intent = Intent(this@FarmerDetails,MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
