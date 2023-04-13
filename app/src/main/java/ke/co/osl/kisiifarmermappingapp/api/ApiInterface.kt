@@ -10,7 +10,7 @@ interface ApiInterface {
 
     companion object {
 
-    val BASE_URL = "http://192.168.1.114:3003/"
+    val BASE_URL = "http://192.168.1.136:3003/"
        // val BASE_URL = "http://185.215.180.181:7014/api/"
 
         fun create() : ApiInterface {
@@ -29,7 +29,7 @@ interface ApiInterface {
     fun recoverPassword(@Body recoverPasswordBody: RecoverPasswordBody) : Call<Message>
 
     @GET("farmerresources/{id}")
-    fun searchFarmerResources(@Path("id") id: String) : Call<FarmersResourcesBody>
+    fun searchFarmerResources(@Path("id") id: String) : Call<List<FarmersResourcesBody>>
 
     @GET("farmergroups/{id}")
     fun searchFarmerAssociations(@Path("id") id: String) : Call<FarmerAssociationsBody>
@@ -41,7 +41,7 @@ interface ApiInterface {
     fun searchFarmerDetails(@Path("id") id: String) : Call<List<FarmersDetailsGetBody>>
 
     @GET("farmeraddress/{id}")
-    fun searchFarmerAddress(@Path("id") id: String) : Call<FarmersLocationBody>
+    fun searchFarmerAddress(@Path("id") id: String) : Call<List<FarmersLocationBody>>
 
     @POST("farmerdetails/create")
     fun postFarmerDetails(@Body farmerDetails: FarmersDetailsBody) : Call<Message>

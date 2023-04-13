@@ -185,4 +185,14 @@ class Summary : AppCompatActivity() {
         }
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        checkForms()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkForms()
+    }
+
 }

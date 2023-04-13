@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import ke.co.osl.kisiifarmermappingapp.api.ApiInterface
+import ke.co.osl.kisiifarmermappingapp.models.FarmersDetailsGetBody
 import ke.co.osl.kisiifarmermappingapp.models.FarmersLocationBody
 import ke.co.osl.kisiifarmermappingapp.models.Message
 import retrofit2.Call
@@ -75,8 +76,21 @@ class FarmerAddress: AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        var editing = intent.getStringExtra("editing")!!
-        chooseAction(editing)
+        var nationalID = preferences.getString("NationalID","")!!
+
+        if (nationalID !== ""){
+            val type = intent.getStringExtra("editing")
+            System.out.println(type)
+            if (type == "editing"){
+                fetchFarmerAddress(nationalID)
+            }else {
+                postFarmerDetails(nationalID)
+            }
+        }else {
+           startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             requestLocationPermission ()
@@ -172,6 +186,27 @@ class FarmerAddress: AppCompatActivity() {
         webView.loadUrl(ip_URL)
     }
 
+    private fun fetchFarmerAddress(id:String){
+        System.out.println(id)
+        val apiInterface = ApiInterface.create().searchFarmerAddress(id)
+        apiInterface.enqueue( object : Callback<List<FarmersLocationBody>> {
+            override fun onResponse(call: Call<List<FarmersLocationBody>>, response: Response<List<FarmersLocationBody>> ) {
+                val bdy = response?.body()!!
+                if(bdy.isNotEmpty()) {
+                    getFarmersAddress(bdy[0])
+                }else {
+                    startActivity(Intent(this@FarmerAddress,MainActivity::class.java))
+                    finish()
+                }
+            }
+            override fun onFailure(call: Call<List<FarmersLocationBody>>, t: Throwable) {
+                startActivity(Intent(this@FarmerAddress,MainActivity::class.java))
+                finish()
+            }
+        })
+    }
+
+
     private fun getLocationUpdates(){
         locationRequest = LocationRequest()
         locationRequest.interval = 50
@@ -250,19 +285,9 @@ class FarmerAddress: AppCompatActivity() {
             Manifest.permission.ACCESS_COARSE_LOCATION))
     }
 
-    private fun chooseAction(editing: String) {
-        if (editing == "search"){
-//            showDialog()
-        } else {
-            postFarmerDetails()
-        }
-
-    }
 
 
-
-
-    private fun postFarmerDetails() {
+    private fun postFarmerDetails(id:String) {
         val next = findViewById<Button>(R.id.next)
         val error = findViewById<TextView>(R.id.error)
         val county = findViewById<Spinner>(R.id.county)
@@ -285,10 +310,10 @@ class FarmerAddress: AppCompatActivity() {
             }
 
             progress.visibility = View.VISIBLE
-            val id = preferences.getString("NationalID", "")
+
             //val id=intent.getStringExtra("FarmerID")
             val farmersLocationBody = FarmersLocationBody(
-                id!!,
+                id,
                 county.selectedItem.toString(),
                 subCounty.selectedItem.toString(),
                 ward.selectedItem.toString(),
@@ -297,7 +322,6 @@ class FarmerAddress: AppCompatActivity() {
                 village.text.toString().capitalize()
             )
 
-            System.out.println(farmersLocationBody)
 
             val apiInterface = ApiInterface.create().postFarmerLocation(farmersLocationBody)
             apiInterface.enqueue( object : Callback<Message> {
@@ -369,8 +393,6 @@ class FarmerAddress: AppCompatActivity() {
                     if(response?.body()?.success !== null){
                         error.text = response?.body()?.success
                         val intent = Intent(this@FarmerAddress, MainActivity::class.java)
-                        intent.putExtra("FarmerID", response.body()?.token)
-                        intent.putExtra("editing",true)
                         startActivity(intent)
                     }
 

@@ -39,20 +39,16 @@ class FarmerDetails: AppCompatActivity() {
             startActivity(Intent(this,MainActivity::class.java))
         }
 
-//        var nationalID = preferences.getString("NationalID","")!!
-//        var nationalID = intent.getStringExtra("NationalID")!!
-        var nationalID = "00000000"
+        var nationalID = preferences.getString("NationalID","")!!
+
         if (nationalID !== ""){
             val type = intent.getStringExtra("editing")
-
+            System.out.println(type)
             if (type == "editing"){
                 fetchFarmerDetails(nationalID)
-            }else if (nationalID == "xyxyx") {
-                createFarmerDetails()
             }
         }else {
-            startActivity(Intent(this,MainActivity::class.java))
-            finish()
+            createFarmerDetails()
         }
 
     }
@@ -133,7 +129,7 @@ class FarmerDetails: AppCompatActivity() {
                         error.text = response?.body()?.success
                         editor.putString("NationalID", farmerDetailsBody.NationalID)
                         editor.apply()
-                        val intent = Intent(this@FarmerDetails,FarmerAssociations::class.java)
+                        val intent = Intent(this@FarmerDetails,FarmerAddress::class.java)
                         startActivity(intent)
                         finish()
                     }

@@ -3,6 +3,7 @@ package ke.co.osl.kisiifarmermappingapp
 import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.http.SslCertificate
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -59,11 +60,18 @@ class FarmerAssociations: AppCompatActivity() {
         }
 
         proceed.setOnClickListener {
-            val intent =Intent(this, ValueChains::class.java)
-            //intent.putExtra("FarmerID", fId )
-            intent.putExtra("FarmerName", fname)
-            startActivity(intent)
-            finish()
+
+            val type = intent.getStringExtra("editing")
+            if (type=="editing"){
+                val intent =Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }else {
+                val intent =Intent(this, ValueChains::class.java)
+                startActivity(intent)
+                finish()
+            }
+
         }
 
         var id = preferences.getString("NationalID", "")
@@ -110,7 +118,7 @@ class FarmerAssociations: AppCompatActivity() {
                 grouptype.selectedItem.toString()
             )
 
-            System.out.println(groupsBody)
+            System.out.println("THE GROUPS BODY IS " + groupsBody)
 
             val apiInterface = ApiInterface.create().postFarmerAssociations(groupsBody)
             apiInterface.enqueue( object : Callback<Message> {
@@ -121,7 +129,6 @@ class FarmerAssociations: AppCompatActivity() {
                         gdialog.hide()
                         displayFarmerGroups(response?.body()?.token!!)
                     }
-
                     else {
                         error.text = "Data not sent to api: " + response?.body()?.error
                     }
@@ -137,39 +144,6 @@ class FarmerAssociations: AppCompatActivity() {
 
     }
 
-
-
-    private fun searchFarmer(d: Dialog) {
-        val submit = d.findViewById<Button>(R.id.submit)
-        val error = d.findViewById<TextView>(R.id.error)
-        val farmerId = d.findViewById<EditText>(R.id.farmerId)
-        val progress = d.findViewById<ProgressBar>(R.id.progress)
-
-//        submit.setOnClickListener {
-//            val apiInterface = ApiInterface.create().searchFarmerDetails(farmerId.text.toString())
-//
-//            apiInterface.enqueue( object : Callback<List<FarmersDetailsGetBody>> {
-//                override fun onResponse(call: Call<List<FarmersDetailsGetBody>>, response: Response<List<FarmersDetailsGetBody>>?) =
-//                    if (response?.body()?.size!! > 0){
-//                        fId = response?.body()?.get(0)?.NationalID!!
-//                        progress.visibility = View.GONE
-//                        System.out.println("The Farmer ID is " + response?.body()?.get(0)?.NationalID )
-//                        dialog.hide()
-//                        displayFarmerGroups(response.body()?.get(0)?.NationalID!! )
-//                    }else {
-//                        error.text = "The farmer was not found!"
-//                    }
-//
-//                override fun onFailure(call: Call<List<FarmersDetailsGetBody>>?, t: Throwable?) {
-//                    progress.visibility = View.GONE
-//                    System.out.println(t)
-//                    error.text = "Connection to server failed"
-//                }
-//            })
-//
-//        }
-    }
-
     private fun displayFarmerGroups(id: String) {
         val progress = findViewById<ProgressBar>(R.id.progress)
         progress.visibility = View.VISIBLE
@@ -177,16 +151,21 @@ class FarmerAssociations: AppCompatActivity() {
         apiInterface.enqueue(object : Callback<List<FarmerAssociationsBody>> {
             override fun onResponse(call: Call<List<FarmerAssociationsBody>>,response: Response<List<FarmerAssociationsBody>>) {
                 progress.visibility = View.GONE
-                val responseBody = response.body()!!
-                System.out.println((responseBody))
-                myAdapter = GroupsAdapter(baseContext, responseBody,id)
-                myAdapter.notifyDataSetChanged()
-                recyclerlist.adapter = myAdapter
-                total = responseBody.size
-                val pgs = Math.ceil((responseBody.size /10.0)).toInt()
-                val txt = if(offset == 0){
-                    1.toString() + "/" + pgs.toString()
-                }else ((offset/10)+1).toString() + "/" + pgs.toString()
+                try {
+                    val responseBody = response.body()!!
+                    System.out.println((responseBody))
+                    myAdapter = GroupsAdapter(baseContext, responseBody, id)
+                    myAdapter.notifyDataSetChanged()
+                    recyclerlist.adapter = myAdapter
+                    total = responseBody.size
+                    val pgs = Math.ceil((responseBody.size / 10.0)).toInt()
+                    val txt = if (offset == 0) {
+                        1.toString() + "/" + pgs.toString()
+                    } else ((offset / 10) + 1).toString() + "/" + pgs.toString()
+                } catch (e:Exception){
+                    System.out.println("the error is $e")
+                }
+
             }
 
             override fun onFailure(call: Call<List<FarmerAssociationsBody>>, t: Throwable) {

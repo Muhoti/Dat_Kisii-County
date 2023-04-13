@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var farmergroups_count : TextView
     lateinit var valuechain_total : TextView
     lateinit var valuechain_count : TextView
+    lateinit var farmerresources_count : TextView
+    lateinit var farmerresources_total : TextView
+    lateinit var total : TextView
     lateinit var mapFarmer: LinearLayout
     lateinit var dialog: Dialog
     lateinit var progress: ProgressBar
@@ -53,8 +56,13 @@ class MainActivity : AppCompatActivity() {
 
         progress = findViewById(R.id.progress)
 
+        total = findViewById(R.id.total)
+
         farmerdetails_count = findViewById(R.id.farmerdetails_count)
         farmerdetails_total = findViewById(R.id.farmerdetails_total)
+
+        farmerresources_count = findViewById(R.id.farmerresources_count)
+        farmerresources_total = findViewById(R.id.farmerresources_total)
 
         farmeraddress_count = findViewById(R.id.farmeraddress_count)
         farmeraddress_total = findViewById(R.id.farmeraddress_total)
@@ -86,7 +94,6 @@ class MainActivity : AppCompatActivity() {
 
         if(nationalID !== ""){
             startActivity(Intent(this,Summary::class.java))
-            finish()
         }
 
 
@@ -105,7 +112,6 @@ class MainActivity : AppCompatActivity() {
 
         mapFarmer.setOnClickListener(){
             val intent = Intent(this@MainActivity,FarmerDetails::class.java)
-            intent.putExtra("NationalID", "xyxyx")
             startActivity(intent)
         }
 
@@ -138,6 +144,13 @@ class MainActivity : AppCompatActivity() {
                     valuechain_total.text = "Total: " +data?.ValueChains?.total.toString()
                     valuechain_count.text = data?.ValueChains?.unique.toString()
 
+                    farmerresources_total.text = "Total: " +data?.FarmerResources?.total.toString()
+                    farmerresources_count.text = data?.FarmerResources?.unique.toString()
+
+
+                    val numbers = intArrayOf(data?.FarmerDetails?.unique!!,
+                        data?.FarmerAddresses?.unique!!,data?.FarmerResources?.unique!!,data?.FarmerGroups?.unique!!,data?.ValueChains?.unique!!)
+                    total.text = numbers.minOrNull()!!.toString()
                 }
 
                 override fun onFailure(call: Call<StatsStatus>, t: Throwable) {
@@ -180,7 +193,6 @@ class MainActivity : AppCompatActivity() {
                         editor.apply()
                         dialog.hide()
                         startActivity(Intent(this@MainActivity,Summary::class.java))
-                        finish()
                     }else {
                         error.text = "Farmer does not exist"
                     }
@@ -201,6 +213,21 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    override fun onRestart() {
+        super.onRestart()
+        val nationalID = preferences.getString("NationalID","")
+        if(nationalID !== ""){
+            startActivity(Intent(this,Summary::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val nationalID = preferences.getString("NationalID","")
+        if(nationalID !== ""){
+            startActivity(Intent(this,Summary::class.java))
+        }
+    }
 
 }
 
