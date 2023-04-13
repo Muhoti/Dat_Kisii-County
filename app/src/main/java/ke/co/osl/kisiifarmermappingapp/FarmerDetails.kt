@@ -12,13 +12,13 @@ import com.auth0.android.jwt.JWT
 import ke.co.osl.kisiifarmermappingapp.api.ApiInterface
 import ke.co.osl.kisiifarmermappingapp.models.FarmersDetailsBody
 import ke.co.osl.kisiifarmermappingapp.models.FarmersDetailsGetBody
+import ke.co.osl.kisiifarmermappingapp.models.FarmersResourcesBody
 import ke.co.osl.kisiifarmermappingapp.models.Message
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class FarmerDetails: AppCompatActivity() {
-    lateinit var dialog: Dialog
     lateinit var user:TextView
     lateinit var preferences: SharedPreferences
     lateinit var editor: SharedPreferences.Editor
@@ -31,14 +31,7 @@ class FarmerDetails: AppCompatActivity() {
         editor = preferences.edit()
 
         val back = findViewById<ImageView>(R.id.back)
-
-        dialog = Dialog(this)
-        dialog.setCancelable(true)
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.setContentView(R.layout.searchfarmer)
-
         user = findViewById(R.id.user)
-
         val jwt = JWT(preferences.getString("token","")!!)
         user.text = jwt.getClaim("Name").asString()
 
@@ -46,76 +39,45 @@ class FarmerDetails: AppCompatActivity() {
             startActivity(Intent(this,MainActivity::class.java))
         }
 
-        var id = intent.getStringExtra("NationalID")
+//        var nationalID = preferences.getString("NationalID","")!!
+//        var nationalID = intent.getStringExtra("NationalID")!!
+        var nationalID = "00000000"
+        if (nationalID !== ""){
+            val type = intent.getStringExtra("editing")
+
+            if (type == "editing"){
+                fetchFarmerDetails(nationalID)
+            }else if (nationalID == "xyxyx") {
+                createFarmerDetails()
+            }
+        }else {
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+
+    }
+
+    private fun fetchFarmerDetails(id:String){
         System.out.println(id)
-
-        if(id == null)
-            id = ""
-        chooseAction (id)
+        val apiInterface = ApiInterface.create().searchFarmerDetails(id)
+        apiInterface.enqueue( object : Callback<List<FarmersDetailsGetBody>> {
+            override fun onResponse(call: Call<List<FarmersDetailsGetBody>>, response: Response<List<FarmersDetailsGetBody>> ) {
+                val bdy = response?.body()!!
+                System.out.println(bdy)
+                if(bdy.isNotEmpty()) {
+                   getFarmersDetails(bdy[0])
+                }else {
+                    startActivity(Intent(this@FarmerDetails,MainActivity::class.java))
+                    finish()
+                }
+            }
+            override fun onFailure(call: Call<List<FarmersDetailsGetBody>>, t: Throwable) {
+                startActivity(Intent(this@FarmerDetails,MainActivity::class.java))
+                finish()
+            }
+        })
     }
 
-    private fun chooseAction(checkId: String) {
-
-        if(checkId == "xyxyx") {
-            createFarmerDetails()
-            System.out.println(checkId)
-        }
-        else if(checkId !== "" && checkId !== "xyxyx") {
-            val apiInterface = ApiInterface.create().searchFarmerDetails(checkId)
-            apiInterface.enqueue( object : Callback<List<FarmersDetailsGetBody>> {
-                override fun onResponse( call: Call<List<FarmersDetailsGetBody>>, response: Response<List<FarmersDetailsGetBody>>?) {
-                    if(response?.body()?.size!! > 0) {
-                        getFarmersDetails(response?.body()?.get(0)!!)
-                    }else {
-                    }
-                }
-                override fun onFailure(call: Call<List<FarmersDetailsGetBody>>, t: Throwable) {
-                    System.out.println(t)
-                }
-            })
-
-        }
-        else if (checkId === "") {
-            //PUT
-            showDialog()
-        }
-    }
-
-    private fun showDialog() {
-        searchFarmer(dialog)
-        dialog.show()
-    }
-
-    private fun searchFarmer(d: Dialog) {
-        val submit = d.findViewById<Button>(R.id.submit)
-        val error = d.findViewById<TextView>(R.id.error)
-        val farmerId = d.findViewById<EditText>(R.id.farmerId)
-        val progress = d.findViewById<ProgressBar>(R.id.progress)
-
-        submit.setOnClickListener {
-            val apiInterface = ApiInterface.create().searchFarmerDetails(farmerId.text.toString())
-
-            apiInterface.enqueue( object : Callback<List<FarmersDetailsGetBody>> {
-                override fun onResponse( call: Call<List<FarmersDetailsGetBody>>, response: Response<List<FarmersDetailsGetBody>>?) {
-                    if(response?.body()?.size!! > 0) {
-                        System.out.println(response?.body())
-                        progress.visibility = View.GONE
-                        dialog.hide()
-                        getFarmersDetails(response?.body()?.get(0)!!)
-                    }else {
-                        error.text = "The farmer was not found!"
-                    }
-                }
-
-                override fun onFailure(call: Call<List<FarmersDetailsGetBody>>, t: Throwable) {
-                    progress.visibility = View.GONE
-                    System.out.println(t)
-                    error.text = "Connection to server failed"
-                }
-            })
-
-        }
-    }
 
     private fun createFarmerDetails() {
         val next = findViewById<Button>(R.id.next)
@@ -127,8 +89,6 @@ class FarmerDetails: AppCompatActivity() {
         val age = findViewById<Spinner>(R.id.age)
         val farming = findViewById<Spinner>(R.id.farming)
         val progress = findViewById<ProgressBar>(R.id.progress)
-
-        System.out.println("post")
 
         next.setOnClickListener {
             error.text = ""
@@ -165,24 +125,17 @@ class FarmerDetails: AppCompatActivity() {
                 farming.selectedItem.toString()
             )
 
-            System.out.println(farmerDetailsBody)
-
             val apiInterface = ApiInterface.create().postFarmerDetails(farmerDetailsBody)
             apiInterface.enqueue( object : Callback<Message> {
                 override fun onResponse(call: Call<Message>?, response: Response<Message>?) {
                     progress.visibility = View.GONE
                     if(response?.body()?.success !== null){
-                        if (response?.body()?.success == "farmer exists"){
-                            error.text = response?.body()?.success
-                            chooseAction(nationalId.toString())
-                        }
                         error.text = response?.body()?.success
                         editor.putString("NationalID", farmerDetailsBody.NationalID)
                         editor.apply()
-                        System.out.println("national id is ${farmerDetailsBody.NationalID}")
-                        val intent = Intent(this@FarmerDetails,FarmerAddress::class.java)
-                        //intent.putExtra("FarmerID", response.body()?.token)
+                        val intent = Intent(this@FarmerDetails,FarmerAssociations::class.java)
                         startActivity(intent)
+                        finish()
                     }
                     else {
                         error.text = response?.body()?.error
@@ -190,7 +143,6 @@ class FarmerDetails: AppCompatActivity() {
                 }
                 override fun onFailure(call: Call<Message>?, t: Throwable?) {
                     progress.visibility = View.GONE
-                    System.out.println(t)
                     error.text = "Connection to server failed"
                 }
             })
@@ -245,7 +197,6 @@ class FarmerDetails: AppCompatActivity() {
             apiInterface.enqueue( object : Callback<Message> {
                 override fun onResponse(call: Call<Message>?, response: Response<Message>?) {
                     progress.visibility = View.GONE
-                    System.out.println(response?.body())
                     if(response?.body()?.success !== null){
                         error.text = response?.body()?.success
                         val intent = Intent(this@FarmerDetails,MainActivity::class.java)
@@ -257,7 +208,6 @@ class FarmerDetails: AppCompatActivity() {
                     }
                 }
                 override fun onFailure(call: Call<Message>?, t: Throwable?) {
-                    System.out.println(t)
                     progress.visibility = View.GONE
                     error.text = "Connection to server failed"
                 }

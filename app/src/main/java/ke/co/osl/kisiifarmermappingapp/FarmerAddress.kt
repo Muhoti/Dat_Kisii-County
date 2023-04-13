@@ -30,7 +30,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class FarmerAddress: AppCompatActivity() {
-    lateinit var dialog: Dialog
+
     lateinit var mFusedLocationClient: FusedLocationProviderClient
     lateinit var webView: WebView
     lateinit var accuracy :TextView
@@ -69,18 +69,13 @@ class FarmerAddress: AppCompatActivity() {
 
         val back = findViewById<ImageView>(R.id.back)
 
-        dialog = Dialog(this)
-        dialog.setCancelable(true)
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.setContentView(R.layout.searchfarmer)
+
 
         back.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
         var editing = intent.getStringExtra("editing")!!
-        System.out.println("editing is " + editing)
-
         chooseAction(editing)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -257,76 +252,15 @@ class FarmerAddress: AppCompatActivity() {
 
     private fun chooseAction(editing: String) {
         if (editing == "search"){
-            showDialog()
+//            showDialog()
         } else {
             postFarmerDetails()
         }
-//        if(checkId !== "") {
-//            // POST
-//           if(editing == "search") {
-//               val apiInterface = ApiInterface.create().searchFarmerAddress(checkId)
-//               apiInterface.enqueue( object : Callback<FarmersLocationBody> {
-//                   override fun onResponse( call: Call<FarmersLocationBody>, response: Response<FarmersLocationBody> ) {
-//                       if(response?.body()?.FarmerID !== null) {
-//                           System.out.println(response.body())
-//                           dialog.hide()
-//                           getFarmersAddress(response.body()!!)
-//                       }else {
-//                         //  error.text = "The farmer was not found!"
-//                       }
-//                   }
-//                   override fun onFailure(call: Call<FarmersLocationBody>, t: Throwable) {
-//
-//                       System.out.println(t)
-//                      // error.text = "Connection to server failed"
-//                   }
-//               })
-//
-//           }
-//            else {
-//               postFarmerDetails()
-//           }
-//        } else {
-//            // GET
-//            showDialog()
-//        }
+
     }
 
-    private fun showDialog() {
-        searchFarmer(dialog)
-        dialog.getWindow()?.setBackgroundDrawableResource(R.drawable.background_transparent);
-        dialog.show()
-    }
 
-    private fun searchFarmer(d: Dialog) {
-        val submit = d.findViewById<Button>(R.id.submit)
-        val error = d.findViewById<TextView>(R.id.error)
-        val farmerId = d.findViewById<EditText>(R.id.farmerId)
-        val progress = d.findViewById<ProgressBar>(R.id.progress)
 
-        submit.setOnClickListener {
-            val apiInterface = ApiInterface.create().searchFarmerAddress(farmerId.text.toString())
-
-            apiInterface.enqueue( object : Callback<FarmersLocationBody> {
-                override fun onResponse( call: Call<FarmersLocationBody>, response: Response<FarmersLocationBody> ) {
-                    if(response?.body()?.FarmerID !== null) {
-                        System.out.println("the farmer address body is " + response.body())
-                        progress.visibility = View.GONE
-                        dialog.hide()
-                        getFarmersAddress(response.body()!!)
-                    }else {
-                        error.text = "The farmer was not found!"
-                    }
-                }
-                    override fun onFailure(call: Call<FarmersLocationBody>, t: Throwable) {
-                        progress.visibility = View.GONE
-                        System.out.println(t)
-                        error.text = "Connection to server failed"
-                }
-            })
-
-        }
-    }
 
     private fun postFarmerDetails() {
         val next = findViewById<Button>(R.id.next)

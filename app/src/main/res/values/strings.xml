@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vihiga</string>
+    <string name="app_name">Kisii</string>
     <string name="title">Farmer Mapping App</string>
     <string name="title_activity_home">Home</string>
     <string name="tab_text_1">Tab 1</string>
@@ -23,10 +23,11 @@
     </string-array>
 
     <string-array name="valuechain_array">
-        <item>Chicken</item>
+        <item>Banana</item>
+        <item>Beans</item>
         <item>Dairy</item>
-        <item>Bananas</item>
-        <item>Local Vegetables</item>
+        <item>Vegetables</item>
+        <item>Local Chicken</item>
     </string-array>
 
     <string name="title_activity_main">MainActivity</string>

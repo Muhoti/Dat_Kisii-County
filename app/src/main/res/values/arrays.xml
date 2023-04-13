@@ -2,44 +2,66 @@
 <resources>
     <string-array name="ward" >
         <item></item>
-        <item>Banja</item>
-        <item>Busali</item>
-        <item>Central Bunyore</item>
-        <item>Chavakali</item>
-        <item>Emabungo</item>
-        <item>Emuhaya</item>
-        <item>Gisambai</item>
-        <item>Hamisi</item>
-        <item>Luanda South</item>
-        <item>Luanda</item>
-        <item>Luanda Township</item>
-        <item>Lugaga / Wamuluma</item>
-        <item>Lyaduywa/Izava</item>
-        <item>Maragoili Central</item>
-        <item>Maragoli South</item>
-        <item>Muhudu</item>
-        <item>Mungoma</item>
-        <item>Mwibona</item>
-        <item>North East Bunyore</item>
-        <item>North Maragoli</item>
-        <item>Sabatia</item>
-        <item>Sabatia West</item>
-        <item>Shamakhokho</item>
-        <item>Shiru</item>
-        <item>Tambua</item>
-        <item>Vihiga</item>
-        <item>Wemilabi</item>
-        <item>West Bunyore</item>
-        <item>Wodanga</item>
+        <item>Bassi Central</item>
+        <item>Bassi Bogetaorio</item>
+        <item>Birongo</item>
+        <item>Bobasi Chache</item>
+        <item>Bobasi/Boitangare</item>
+        <item>Bobaracho</item>
+        <item>Bogiakumu</item>
+        <item>Bogetenga</item>
+        <item>Bogusero</item>
+        <item>Bogeka</item>
+        <item>Boikanga</item>
+        <item>Bokeira</item>
+        <item>Bokimonge</item>
+        <item>Bomariba</item>
+        <item>Boochi Borabu</item>
+        <item>Boochi/Tendere</item>
+        <item>Borabu/Chitago</item>
+        <item>Borabu Masaba</item>
+        <item>Borabu/Chitago</item>
+        <item>Bosoti/Sengera</item>
+        <item>Gesusu</item>
+        <item>Getenga</item>
+        <item>Ibeno</item>
+        <item>Ichuni</item>
+        <item>Keumbu</item>
+        <item>Kiamokana</item>
+        <item>Kiogoro</item>
+        <item>Kisii Central</item>
+        <item>Kitutu Central</item>
+        <item>Machoge Basi</item>
+        <item>Magenche</item>
+        <item>Marani</item>
+        <item>Masige West</item>
+        <item>Masige East</item>
+        <item>Masimba</item>
+        <item>Monyerero</item>
+        <item>Moticho</item>
+        <item>Mwamonari</item>
+        <item>Nyacheki</item>
+        <item>Nyakoe</item>
+        <item>Nyamasibi</item>
+        <item>Nyatieko</item>
+        <item>Riana</item>
+        <item>Sameta/Mokwerero</item>
+        <item>Sensi</item>
+        <item>Tabaka</item>
     </string-array>
 
     <string-array name="subCounty" >
-        <item>Emuhaya</item>
-        <item>Hamisi</item>
-        <item>Luanda</item>
-        <item>Sabatia</item>
-        <item>Vihiga</item>
+        <item>Bobasi</item>
+        <item>Bomachoge Borabu</item>
+        <item>Bomachoge Chache</item>
+        <item>Bonchari</item>
+        <item>Nyaribari Masaba</item>
+        <item>Nyaribari Chache</item>
+        <item>South Mugirango</item>
+        <item>Kitutu Chache</item>
+        <item>Kitutu Chache North</item>
     </string-array>
+
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>
@@ -51,7 +73,7 @@
     </string-array>
 
     <string-array name="county">
-        <item>Vihiga</item>
+        <item>Kisii</item>
     </string-array>
 
     <string-array name="farming" >

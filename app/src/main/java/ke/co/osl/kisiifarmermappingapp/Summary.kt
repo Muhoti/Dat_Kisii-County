@@ -43,6 +43,8 @@ class Summary : AppCompatActivity() {
 
     lateinit var nationalID:String
 
+    lateinit var bdy:CheckForm
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_summary)
@@ -66,6 +68,8 @@ class Summary : AppCompatActivity() {
 
         nationalID = preferences.getString("NationalID", "")!!
 
+        System.out.println(nationalID)
+
         if(nationalID === ""){
             startActivity(Intent(this, MainActivity::class.java))
             finish()
@@ -76,16 +80,26 @@ class Summary : AppCompatActivity() {
         finish.setOnClickListener {
             editor.putString("NationalID","")
             editor.apply()
-            startActivity(Intent(this, FarmerResources::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
 
         fd = findViewById(R.id.fd)
+        fd.isEnabled = false
         fd.setOnClickListener {
-            val intent = Intent(this, FarmerDetails::class.java)
-            intent.putExtra("editing", "editing")
-            startActivity(intent)
-            finish()
+            if (bdy !== null){
+                if (bdy.FarmerDetails > 0){
+                    val intent = Intent(this, FarmerDetails::class.java)
+                    intent.putExtra("editing", "editing")
+                    startActivity(intent)
+                    finish()
+                }else {
+                    val intent = Intent(this, FarmerDetails::class.java)
+                    intent.putExtra("editing", "editing")
+                    startActivity(intent)
+                    finish()
+                }
+            }
         }
 
         fa = findViewById(R.id.fa)
@@ -125,15 +139,16 @@ class Summary : AppCompatActivity() {
 
     private fun checkForms() {
         try {
-
             progress.visibility = View.VISIBLE
-            val apiInterface = ApiInterface.create().checkForms("31226965")
+            val apiInterface = ApiInterface.create().checkForms(nationalID)
 
             apiInterface.enqueue(object : retrofit2.Callback<CheckForm> {
                 override fun onResponse(call: Call<CheckForm>, response: Response<CheckForm>) {
                     val body = response.body()
                     progress.visibility = View.GONE
                     if (body !== null) {
+                        bdy = body
+                        fd.isEnabled = true
                         if(body.FarmerGroups > 0 && body.FarmerDetails > 0
                             && body.FarmerAddress > 0 && body.FarmerResources > 0 && body.FarmerValueChains > 0){
                             finish.isEnabled = true

@@ -5,20 +5,8 @@
     <item  android:id="@+id/nav_home"
         android:title="@string/home"/>
 
-    <item android:id="@+id/nav_farmerdetails"
-        android:title="@string/edit_farmer_details"/>
-
-    <item android:id="@+id/nav_farmeraddress"
-        android:title="@string/edit_farmer_address"/>
-
-    <item android:id="@+id/nav_farmerresources"
-        android:title="@string/edit_farmer_resources"/>
-
-    <item android:id="@+id/nav_farmerassociations"
-        android:title="@string/edit_farmer_associations"/>
-
-    <item android:id="@+id/nav_valuechains"
-        android:title="@string/edit_value_chains"/>
+    <item android:id="@+id/edit"
+        android:title="Edit Farmer"/>
 
     <item
         android:id="@+id/logout"

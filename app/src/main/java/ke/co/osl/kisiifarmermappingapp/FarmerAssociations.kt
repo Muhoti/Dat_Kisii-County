@@ -18,7 +18,6 @@ import retrofit2.Response
 
 class FarmerAssociations: AppCompatActivity() {
     lateinit var gdialog: Dialog
-    lateinit var dialog: Dialog
     lateinit var myAdapter: GroupsAdapter
     lateinit var linearLayoutManager: LinearLayoutManager
     lateinit var recyclerlist: RecyclerView
@@ -55,11 +54,6 @@ class FarmerAssociations: AppCompatActivity() {
         gdialog.setCanceledOnTouchOutside(false)
         gdialog.setContentView(R.layout.add_farmer_assoc)
 
-        dialog = Dialog(this)
-        dialog.setCancelable(true)
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.setContentView(R.layout.searchfarmer)
-
         back.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
@@ -82,13 +76,12 @@ class FarmerAssociations: AppCompatActivity() {
 
     private fun chooseAction(checkId: String) {
         if(checkId !== "") {
-            //val id=intent.getStringExtra("FarmerID")
             val id=preferences.getString("NationalID", "")
             System.out.println("Farmer Association ID IS " + id)
             fId = id!!
             displayFarmerGroups(id)
         } else {
-            showSearchDialog()
+            //showSearchDialog()
         }
     }
 
@@ -144,11 +137,7 @@ class FarmerAssociations: AppCompatActivity() {
 
     }
 
-    private fun showSearchDialog() {
-        searchFarmer(dialog)
-        dialog.getWindow()?.setBackgroundDrawableResource(R.drawable.background_transparent);
-        dialog.show()
-    }
+
 
     private fun searchFarmer(d: Dialog) {
         val submit = d.findViewById<Button>(R.id.submit)
@@ -156,35 +145,34 @@ class FarmerAssociations: AppCompatActivity() {
         val farmerId = d.findViewById<EditText>(R.id.farmerId)
         val progress = d.findViewById<ProgressBar>(R.id.progress)
 
-        submit.setOnClickListener {
-            val apiInterface = ApiInterface.create().searchFarmerDetails(farmerId.text.toString())
-
-            apiInterface.enqueue( object : Callback<List<FarmersDetailsGetBody>> {
-                override fun onResponse(call: Call<List<FarmersDetailsGetBody>>, response: Response<List<FarmersDetailsGetBody>>?) =
-                    if (response?.body()?.size!! > 0){
-                        fId = response?.body()?.get(0)?.NationalID!!
-                        progress.visibility = View.GONE
-                        System.out.println("The Farmer ID is " + response?.body()?.get(0)?.NationalID )
-                        dialog.hide()
-                        displayFarmerGroups(response.body()?.get(0)?.NationalID!! )
-                    }else {
-                        error.text = "The farmer was not found!"
-                    }
-
-                override fun onFailure(call: Call<List<FarmersDetailsGetBody>>?, t: Throwable?) {
-                    progress.visibility = View.GONE
-                    System.out.println(t)
-                    error.text = "Connection to server failed"
-                }
-            })
-
-        }
+//        submit.setOnClickListener {
+//            val apiInterface = ApiInterface.create().searchFarmerDetails(farmerId.text.toString())
+//
+//            apiInterface.enqueue( object : Callback<List<FarmersDetailsGetBody>> {
+//                override fun onResponse(call: Call<List<FarmersDetailsGetBody>>, response: Response<List<FarmersDetailsGetBody>>?) =
+//                    if (response?.body()?.size!! > 0){
+//                        fId = response?.body()?.get(0)?.NationalID!!
+//                        progress.visibility = View.GONE
+//                        System.out.println("The Farmer ID is " + response?.body()?.get(0)?.NationalID )
+//                        dialog.hide()
+//                        displayFarmerGroups(response.body()?.get(0)?.NationalID!! )
+//                    }else {
+//                        error.text = "The farmer was not found!"
+//                    }
+//
+//                override fun onFailure(call: Call<List<FarmersDetailsGetBody>>?, t: Throwable?) {
+//                    progress.visibility = View.GONE
+//                    System.out.println(t)
+//                    error.text = "Connection to server failed"
+//                }
+//            })
+//
+//        }
     }
 
     private fun displayFarmerGroups(id: String) {
         val progress = findViewById<ProgressBar>(R.id.progress)
         progress.visibility = View.VISIBLE
-        System.out.println("here the id is $id farmer associate.")
         val apiInterface = ApiInterface.create().showFarmerGroups(id)
         apiInterface.enqueue(object : Callback<List<FarmerAssociationsBody>> {
             override fun onResponse(call: Call<List<FarmerAssociationsBody>>,response: Response<List<FarmerAssociationsBody>>) {

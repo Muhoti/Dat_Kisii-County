@@ -35,7 +35,7 @@ class LandingPage: AppCompatActivity() {
 
 
         Handler().postDelayed({
-            val intent = Intent(this, Summary::class.java)
+            val intent = Intent(this, LoginPage::class.java)
             startActivity(intent)
             finish()
         }, 4000)
