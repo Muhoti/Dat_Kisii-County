@@ -95,7 +95,6 @@ class Summary : AppCompatActivity() {
                     finish()
                 }else {
                     val intent = Intent(this, FarmerDetails::class.java)
-                    intent.putExtra("editing", "editing")
                     startActivity(intent)
                     finish()
                 }
@@ -104,18 +103,36 @@ class Summary : AppCompatActivity() {
 
         fa = findViewById(R.id.fa)
         fa.setOnClickListener {
-            val intent = Intent(this, FarmerAddress::class.java)
-            intent.putExtra("editing", "editing")
-            startActivity(intent)
-            finish()
+            if (bdy !== null){
+                if (bdy.FarmerAddress > 0){
+                    val intent = Intent(this, FarmerAddress::class.java)
+                    intent.putExtra("editing", "editing")
+                    startActivity(intent)
+                    finish()
+                }else {
+                    val intent = Intent(this, FarmerAddress::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+
         }
 
         fr = findViewById(R.id.fr)
         fr.setOnClickListener {
-            val intent = Intent(this, FarmerResources::class.java)
-            intent.putExtra("editing", "editing")
-            startActivity(intent)
-            finish()
+            if (bdy !== null){
+                if (bdy.FarmerResources > 0){
+                    val intent = Intent(this, FarmerResources::class.java)
+                    intent.putExtra("editing", "editing")
+                    startActivity(intent)
+                    finish()
+                }else {
+                    val intent = Intent(this, FarmerResources::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+
         }
 
         fg = findViewById(R.id.fg)
@@ -133,7 +150,6 @@ class Summary : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
         checkForms()
     }
 

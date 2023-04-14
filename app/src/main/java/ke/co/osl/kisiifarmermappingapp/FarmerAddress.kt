@@ -304,8 +304,8 @@ class FarmerAddress: AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if(acc.toString() <= "20"){
-                error.text = "Too low accuracy to display correct location. Refresh map to try again!!"
+            if(acc > 25){
+                error.text = "GPS accuracy too low"
                 return@setOnClickListener
             }
 
